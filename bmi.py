@@ -48,5 +48,6 @@ def main():
         if again.lower() == 'no':
             active = False
             
-main()
+if __name__ == "__main__":
+    main()
 
