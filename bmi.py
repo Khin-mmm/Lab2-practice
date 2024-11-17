@@ -3,18 +3,22 @@ def calculate_bmi(weight, height):
     height = float(height)
     
     bmi = weight/ (height ** 2)
-
-    return bmi
+    return_value = print_result(weight, height, bmi)
+    return return_value
 
 
 def analyse_bmi(bmi):
     if bmi < 18.5:
         condition = 'under weight'
+        val = -1
     elif bmi >= 18.5 and bmi <= 25.0:
         condition = 'normal weight'
+        val = 0
     elif bmi > 25.0:
         condition = 'over weight'
-    return condition
+        val = 1
+    print(f"You are {condition.title()}.")
+    return val
 
 
 def print_result(weight, height, bmi):
@@ -25,11 +29,9 @@ def print_result(weight, height, bmi):
     #print(f"Your Bmi is {bmi:.2f}.")
     #print(f"Your Bmi is {"%.2f" % bmi}.")
 
-    condition = analyse_bmi(bmi)
-    print(f"You are {condition.title()}.")
-
-    again = input("Do you want to calculate again? (Yes/No): ")
-    return again
+    return_value = analyse_bmi(bmi)
+     
+    return return_value
 
 
 active = True
@@ -43,8 +45,8 @@ def main():
         weight = input("Enter your weight in kg: ")
         if weight == 'q':
             break
-        bmi = calculate_bmi(weight=weight, height=height)
-        again = print_result(weight, height, bmi)
+        calculate_bmi(weight=weight, height=height)
+        again = input("Do you want to calculate again? (Yes/No): ")
         if again.lower() == 'no':
             active = False
             
