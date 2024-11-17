@@ -24,19 +24,14 @@ def find_min_max(list):
     return min_max
 
 def sort_temperature(list):
-    return
+    ascending_temps = sorted(list)
+    return ascending_temps
 
 def calc_median_temperature(list):
-    return
-
-def main():
-    display_main_menu()
-    user_inputs = get_user_input()
-    average = calc_averge(user_inputs)
-    min_max = find_min_max(user_inputs)
-
-    print(f"Average Temperature is {average}.")
-    print(f"Minimum Temperature - {min_max[0]}\nMaximum Temperature - {min_max[1]}")
-
-if __name__ == "__main__":
-    main()
+    temp_num = len(list)
+    half_temp_num = int(temp_num / 2)
+    if temp_num % 2 == 0:
+        median = (list[half_temp_num] + list[half_temp_num - 1]) / 2
+    elif temp_num % 2 == 1:
+        median = list[half_temp_num]
+    return median
